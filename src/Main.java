@@ -12,7 +12,7 @@ public class Main {
         ElementoMultimediale[] elementi = new ElementoMultimediale[5];
 
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             System.out.println("cosa vuoi creare? (scrivi: audio, immagine, video)");
             String tipologia = scanner.nextLine();
 
@@ -72,24 +72,94 @@ public class Main {
 
             if (oggetto < 0 || oggetto > 5) {
                 System.out.println("Numero selezionato non valido. Seleziona un numero che sia compreso tra 0 e 5.");
+            } else {
+
+                ElementoMultimediale elementoCorrente = elementi[oggetto - 1];
+
+                if (elementoCorrente instanceof Video) {
+                    ((Video) elementoCorrente).play();
+
+                    System.out.println("Vuoi alzare o abbassare il volume? (Scrivi alza, abbassa o no).");
+                    String alza = scanner.nextLine();
+                    switch (alza) {
+                        case "alza":
+                            ((Video) elementoCorrente).alzaVolume();
+                            break;
+                        case "abbassa":
+                            ((Video) elementoCorrente).abbassaVolume();
+                            break;
+                        case "no":
+                            System.out.println("Il volume non è stato né abbassato né alzato.");
+                            break;
+                        default:
+                            System.out.println("Azione non valida");
+                            break;
+                    }
+
+
+                    System.out.println("Vuoi aumentare o diminuire la luminosità? (Scrivi aumenta, diminuisci o no).");
+                    String luminosita = scanner.nextLine();
+                    switch (luminosita) {
+                        case "aumenta":
+                            ((Video) elementoCorrente).aumentaLuminosita();
+                            break;
+                        case "diminuisci":
+                            ((Video) elementoCorrente).diminuisciLuminosita();
+                            break;
+                        case "no":
+                            System.out.println("La luminosità non è stato né aumentata né diminuita.");
+                            break;
+                        default:
+                            System.out.println("Azione non valida");
+                            break;
+                    }
+
+
+                }
+
+                if (elementoCorrente instanceof RegistrazioneAudio) {
+                    ((RegistrazioneAudio) elementoCorrente).play();
+
+                    System.out.println("Vuoi alzare o abbassare il volume? (Scrivi alza, abbassa o no).");
+                    String alza = scanner.nextLine();
+                    switch (alza) {
+                        case "alza":
+                            ((RegistrazioneAudio) elementoCorrente).alzaVolume();
+                            break;
+                        case "abbassa":
+                            ((RegistrazioneAudio) elementoCorrente).abbassaVolume();
+                            break;
+                        case "no":
+                            System.out.println("Il volume non è stato né abbassato né alzato.");
+                            break;
+                        default:
+                            System.out.println("Azione non valida");
+                            break;
+                    }
+                }
+
+                if (elementoCorrente instanceof Immagine) {
+                    ((Immagine) elementoCorrente).show();
+
+                    System.out.println("Vuoi aumentare o diminuire la luminosità? (Scrivi aumenta, diminuisci o no).");
+                    String luminosita = scanner.nextLine();
+                    switch (luminosita) {
+                        case "aumenta":
+                            ((Immagine) elementoCorrente).aumentaLuminosita();
+                            break;
+                        case "diminuisci":
+                            ((Immagine) elementoCorrente).diminuisciLuminosita();
+                            break;
+                        case "no":
+                            System.out.println("La luminosità non è stata né aumentata né diminuita.");
+                            break;
+                        default:
+                            System.out.println("Azione non valida");
+                            break;
+                    }
+
+                }
             }
-
-            ElementoMultimediale elementoCorrente = elementi[oggetto - 1];
-
-            if (elementoCorrente instanceof Video) {
-                ((Video) elementoCorrente).play();
-                System.out.println("Vuoi cambiare volume?");
-
-            }
-
-            if (elementoCorrente instanceof RegistrazioneAudio) {
-                ((RegistrazioneAudio) elementoCorrente).play();
-            }
-
-            if (elementoCorrente instanceof Immagine) {
-                ((Immagine) elementoCorrente).show();
-            }
-
         }
     }
 }

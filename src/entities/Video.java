@@ -18,16 +18,6 @@ public class Video extends ElementoMultimediale implements Play {
     }
 
     //metodi
-
-
-    public void aumentaLuminosità() {
-        this.luminosita++;
-    }
-
-    public void diminuisciLuminosita() {
-        this.luminosita--;
-    }
-
     public int getVolume() {
         return volume;
     }
@@ -58,14 +48,34 @@ public class Video extends ElementoMultimediale implements Play {
     @Override
     public void abbassaVolume() {
         this.volume--;
-        System.out.println("Il volume abbassato è " + this.volume);
-
+        System.out.println("Il volume è stato abbassato. Ora è:");
+        for (int v = 0; v < this.volume; v++) {
+            System.out.println("!");
+        }
     }
 
     @Override
     public void alzaVolume() {
         this.volume++;
-        System.out.println("Il volume alzato è " + this.volume);
+        System.out.println("Il volume è stato alzato. Ora è:");
+        for (int v = 0; v < this.volume; v++) {
+            System.out.println("!");
+        }
+    }
 
+    public void aumentaLuminosita() {
+        this.luminosita++;
+        System.out.println("La luminosità è stata aumentata. Ora è:");
+        for (int l = 0; l < this.luminosita; l++) {
+            System.out.println("*");
+        }
+    }
+
+    public void diminuisciLuminosita() {
+        this.luminosita--;
+        System.out.println("La luminosità è stata diminuita. Ora è:");
+        for (int l = 0; l < this.luminosita; l++) {
+            System.out.println("*");
+        }
     }
 }

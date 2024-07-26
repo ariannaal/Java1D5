@@ -31,18 +31,22 @@ public class RegistrazioneAudio extends ElementoMultimediale implements Play {
         }
     }
 
-
     @Override
     public void abbassaVolume() {
         this.volume--;
-        System.out.println("Il volume abbassato è " + volume--);
+        System.out.println("Il volume è stato abbassato. Ora è:");
+        for (int v = 0; v < this.volume; v++) {
+            System.out.println("!");
+        }
     }
-
 
     @Override
     public void alzaVolume() {
         this.volume++;
-        System.out.println("il volume alzato è " + volume++);
+        System.out.println("Il volume è stato alzato. Ora è:");
+        for (int v = 0; v < this.volume; v++) {
+            System.out.println("!");
+        }
     }
 
 

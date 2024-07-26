@@ -23,12 +23,21 @@ public class Immagine extends ElementoMultimediale {
         }
     }
 
-    public void aumentaLuminosità() {
-        luminosita++;
+
+    public void aumentaLuminosita() {
+        this.luminosita++;
+        System.out.println("La luminosità è stata aumentata. Ora è:");
+        for (int l = 0; l < this.luminosita; l++) {
+            System.out.println("*");
+        }
     }
 
     public void diminuisciLuminosita() {
-        luminosita--;
+        this.luminosita--;
+        System.out.println("La luminosità è stata diminuita. Ora è:");
+        for (int l = 0; l < this.luminosita; l++) {
+            System.out.println("*");
+        }
     }
 
     public int getLuminosita() {
