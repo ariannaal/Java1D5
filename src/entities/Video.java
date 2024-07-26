@@ -10,12 +10,7 @@ public class Video extends ElementoMultimediale implements Play {
     private int durata;
 
     //costruttore
-//    public Video(int durata, int volume) {
-//        this.volume = volume;
-//        this.durata = durata;
-//    }
-
-    public Video(String titolo, int durata, int luminosita) {
+    public Video(String titolo, int durata, int luminosita, int volume) {
         super(titolo);
         this.durata = durata;
         this.luminosita = luminosita;
@@ -47,15 +42,15 @@ public class Video extends ElementoMultimediale implements Play {
 
     @Override
     public void play() {
-        System.out.println("Video " + getTitolo());
+        System.out.println("Il titolo del video è: " + getTitolo());
         for (int i = 0; i < getDurata(); i++) {
             System.out.println(this.getTitolo());
         }
-        for (int v = 0; v < getVolume(); v++) {
-            System.out.println("!");
-        }
         for (int l = 0; l < getLuminosita(); l++) {
             System.out.println("*");
+        }
+        for (int v = 0; v < getVolume(); v++) {
+            System.out.println("!");
         }
 
     }

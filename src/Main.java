@@ -23,10 +23,10 @@ public class Main {
                     String titolo = scanner.nextLine();
                     System.out.println("Inserisci la durata della registrazione audio (elemento nr. " + (i + 1) + ")");
                     int durata = scanner.nextInt();
-                    System.out.println("Inserisci la luminosità della registrazione audio (elemento nr. " + (i + 1) + ")");
-                    int luminosita = scanner.nextInt();
+                    System.out.println("Inserisci il volume della registrazione audio (elemento nr. " + (i + 1) + ")");
+                    int volumeA = scanner.nextInt();
                     scanner.nextLine();
-                    elementi[i] = new RegistrazioneAudio(titolo, durata, luminosita);
+                    elementi[i] = new RegistrazioneAudio(titolo, durata, volumeA);
                     break;
 
                 case "immagine":
@@ -41,12 +41,14 @@ public class Main {
                 case "video":
                     System.out.println("Inserisci il titolo del video (elemento nr. " + (i + 1) + ")");
                     String titoloV = scanner.nextLine();
-                    System.out.println("Inserisci la durata dell video (elemento nr. " + (i + 1) + ")");
+                    System.out.println("Inserisci la durata del video (elemento nr. " + (i + 1) + ")");
                     int durataV = scanner.nextInt();
-                    System.out.println("Inserisci la luminosità dell video (elemento nr. " + (i + 1) + ")");
+                    System.out.println("Inserisci la luminosità del video (elemento nr. " + (i + 1) + ")");
                     int luminositaV = scanner.nextInt();
+                    System.out.println("Inserisci il volume del video (elemento nr. " + (i + 1) + ")");
+                    int volumeV = scanner.nextInt();
                     scanner.nextLine();
-                    elementi[i] = new Video(titoloV, durataV, luminositaV);
+                    elementi[i] = new Video(titoloV, durataV, luminositaV, volumeV);
                     break;
                 default:
                     System.out.println("L'elemento inserito non è valido. Inserire una tra le seguenti opzioni: immagine, audio, video.");
@@ -76,6 +78,8 @@ public class Main {
 
             if (elementoCorrente instanceof Video) {
                 ((Video) elementoCorrente).play();
+                System.out.println("Vuoi cambiare volume?");
+
             }
 
             if (elementoCorrente instanceof RegistrazioneAudio) {
